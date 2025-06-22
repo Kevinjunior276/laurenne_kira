@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation Finale - Laurenne Kira Entreprise</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="images/PDG.jpg" rel="icon">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body { background: #fff; }
+        .validation-container { max-width: 540px; margin: 48px auto 0; padding: 32px 0; }
+        .form-label { font-weight: 600; }
+        .form-control[readonly] { background: #f5f7fa; }
+        .faq-section { margin-top: 40px; }
+        .faq-question { font-weight: 500; }
+        .faq-answer { color: #444; }
+        .btn-whatsapp { background: #25d366; color: #fff; font-weight: 600; }
+        .btn-whatsapp:hover { background: #1ebe57; color: #fff; }
+        .footer-link { color: #222; text-decoration: none; }
+        .footer-link:hover { text-decoration: underline; color: #2563eb; }
+    </style>
+</head>
+<body class="activer-plan">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show custom-loader-bg position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="z-index: 9999;">
+      <div class="custom-loader-wrapper">
+        <div class="custom-loader"></div>
+      </div>
+    </div>
+    <!-- Spinner End -->
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-blue-200"><i class="fa fa-map-marker-alt me-2"></i>Ngueme, Limbe, CMR</small>
+                    <small class="me-3 text-blue-200"><i class="bi bi-whatsapp me-2"></i>(+237) 653 377 867</small>
+                    <small class="text-blue-200"><i class="fa fa-envelope-open me-2"></i>laurennekira@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/237653377867"><i class="fab fa-whatsapp fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/profile.php?id=61558114561308"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://mail.google.com/mail/?view=cm&fs=1&to=laurennekira@gmail.com" target="_blank">
+                        <i class="fa fa-envelope fw-normal"></i>
+                    </a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square me-2" href="https://t.me/+69L0OXYOnE8zMzZk"><i class="fab fa-telegram fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="text-primary m-0">
+                    <img class="border rounded-border" src="images/log.jpg" alt="images"> LKE
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Accueil</a>
+                    <a href="about.html" class="nav-item nav-link">A-propos</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="activer-plan.html" class="nav-item nav-link active">Activer un plan</a>
+                    <a href="destination.html" class="nav-item nav-link">Beneficiaire</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    <!-- Hero Header animé -->
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row justify-content-center py-5">
+                <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Validation Finale</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="activer-plan.html">Activer un plan</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Validation</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Hero Header -->
+    <div class="validation-container bg-white rounded shadow p-4 mb-5" style="max-width: 540px; margin: -120px auto 0; position: relative; z-index: 2;">
+        <h2 class="fw-bold mb-4 text-center">Validation Finale</h2>
+        <form id="validationForm">
+            <div class="mb-3">
+                <label for="fullName" class="form-label">Nom Complet</label>
+                <input type="text" class="form-control" id="fullName" placeholder="Entrez votre nom complet" required>
+            </div>
+            <div class="mb-3">
+                <label for="country" class="form-label">Pays</label>
+                <select class="form-select" id="country" required>
+                    <option value="">Choisissez votre pays</option>
+                    <option value="Cameroun">🇨🇲 Cameroun</option>
+                    <option value="Côte d'Ivoire">🇨🇮 Côte d'Ivoire</option>
+                    <option value="Gabon">🇬🇦 Gabon</option>
+                    <option value="Congo">🇨🇬 Congo</option>
+                    <option value="Togo">🇹🇬 Togo</option>
+                    <option value="Bénin">🇧🇯 Bénin</option>
+                    <option value="Burkina Faso">🇧🇫 Burkina Faso</option>
+                    <option value="Sénégal">🇸🇳 Sénégal</option>
+                    <option value="Mali">🇲🇱 Mali</option>
+                    <option value="Autre">🌍 Autre</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="phoneCountry" class="form-label">Pays du numéro de téléphone</label>
+                <div class="input-group">
+                    <select class="form-select" id="phoneCountry" style="max-width: 120px;" required>
+                        <option value="237">🇨🇲 +237</option>
+                        <option value="225">🇨🇮 +225</option>
+                        <option value="241">🇬🇦 +241</option>
+                        <option value="242">🇨🇬 +242</option>
+                        <option value="228">🇹🇬 +228</option>
+                        <option value="229">🇧🇯 +229</option>
+                        <option value="226">🇧🇫 +226</option>
+                        <option value="221">🇸🇳 +221</option>
+                        <option value="223">🇲🇱 +223</option>
+                        <option value="">🌍 Autre</option>
+                    </select>
+                    <input type="tel" class="form-control" id="phoneNumber" placeholder="Numéro de téléphone" required pattern="[0-9]{6,15}">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
+            </div>
+            <div class="mb-3">
+                <label for="selectedAmount" class="form-label">Montant Sélectionné</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="selectedAmount" placeholder="Montant sélectionné" readonly style="background:#f5f7fa;">
+                    <span class="input-group-text" id="currencyLabel"></span>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="chosenDuration" class="form-label">Durée Choisie</label>
+                <input type="text" class="form-control" id="chosenDuration" placeholder="Durée choisie" readonly style="background:#f5f7fa;">
+            </div>
+            <div id="infoMessage" class="text-danger small mt-2" style="display:none;"></div>
+            <div class="mb-3">
+                <label for="optionalMessage" class="form-label">Message Optionnel</label>
+                <textarea class="form-control" id="optionalMessage" rows="3" placeholder="Ajoutez un message (optionnel)"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary w-100" id="validateBtn">Valider</button>
+            <div id="valErrorMsg" class="text-danger mt-2" style="min-height:22px;"></div>
+        </form>
+    </div>
+
+    <!-- Section FAQ séparée -->
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="bg-white rounded shadow p-4">
+                    <h3 class="fw-bold mb-4 text-center">Questions Fréquentes</h3>
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq1">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse1" aria-expanded="false" aria-controls="faqCollapse1">
+                                    Combien de temps prend le processus d'investissement ?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse1" class="accordion-collapse collapse" aria-labelledby="faq1" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Processus rapide et efficace :</strong></p>
+                                    <ul>
+                                        <li><strong>Validation :</strong> Moins de 24 heures après soumission du formulaire</li>
+                                        <li><strong>Activation :</strong> Immédiate après validation et réception du paiement</li>
+                                        <li><strong>Suivi :</strong> Mises à jour quotidiennes sur l'évolution de votre investissement</li>
+                                        <li><strong>Rendement :</strong> Selon la durée choisie (1, 2 ou 3 jours)</li>
+                                    </ul>
+                                    <p class="mb-0"><em>Notre équipe s'engage à traiter votre demande dans les plus brefs délais pour maximiser vos opportunités d'investissement.</em></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse2" aria-expanded="false" aria-controls="faqCollapse2">
+                                    Quel est le montant minimum d'investissement ?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse2" class="accordion-collapse collapse" aria-labelledby="faq2" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Montants d'investissement flexibles :</strong></p>
+                                    <ul>
+                                        <li><strong>FCFA :</strong> À partir de 10 000 FCFA (montant minimum)</li>
+                                        <li><strong>USD :</strong> À partir de 100 USD (montant minimum)</li>
+                                        <li><strong>Pas de limite maximale</strong> - investissez selon vos capacités</li>
+                                        <li><strong>Montants recommandés :</strong> 50 000 FCFA à 500 000 FCFA pour un meilleur rendement</li>
+                                    </ul>
+                                    <p class="mb-0"><em>Nous proposons des options d'investissement accessibles à tous les budgets, du débutant au professionnel.</em></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq3">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse3" aria-expanded="false" aria-controls="faqCollapse3">
+                                    Quels sont les moyens de paiement acceptés ?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Moyens de paiement sécurisés et variés :</strong></p>
+                                    <ul>
+                                        <li><strong>Mobile Money :</strong> MTN Mobile Money, Orange Money</li>
+                                        <li><strong>Transferts bancaires :</strong> Toutes les banques locales</li>
+                                        <li><strong>Paiements en espèces :</strong> Dans nos bureaux à Ngueme, Limbe</li>
+                                        <li><strong>Cryptomonnaies :</strong> Bitcoin, Ethereum (sur demande)</li>
+                                        <li><strong>Cartes bancaires :</strong> Visa, Mastercard (en développement)</li>
+                                    </ul>
+                                    <p class="mb-0"><em>Tous les paiements sont sécurisés et vous recevrez un reçu officiel pour chaque transaction.</em></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq4">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse4" aria-expanded="false" aria-controls="faqCollapse4">
+                                    Comment puis-je suivre mon investissement ?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse4" class="accordion-collapse collapse" aria-labelledby="faq4" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Suivi complet et transparent :</strong></p>
+                                    <ul>
+                                        <li><strong>Notifications WhatsApp :</strong> Mises à jour en temps réel</li>
+                                        <li><strong>Emails quotidiens :</strong> Rapports détaillés sur l'évolution</li>
+                                        <li><strong>Support téléphonique :</strong> (+237) 653 377 867</li>
+                                        <li><strong>Rendez-vous personnalisés :</strong> Suivi en face à face si nécessaire</li>
+                                        <li><strong>Plateforme en ligne :</strong> Accès à votre tableau de bord (bientôt disponible)</li>
+                                    </ul>
+                                    <p class="mb-0"><em>Notre équipe s'engage à vous tenir informé à chaque étape de votre investissement pour une transparence totale.</em></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq5">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse5" aria-expanded="false" aria-controls="faqCollapse5">
+                                    Quels sont les risques et garanties ?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse5" class="accordion-collapse collapse" aria-labelledby="faq5" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Sécurité et garanties de votre investissement :</strong></p>
+                                    <ul>
+                                        <li><strong>Garantie de rendement :</strong> Multiplicateurs garantis selon la durée</li>
+                                        <li><strong>Protection du capital :</strong> Stratégies de gestion des risques avancées</li>
+                                        <li><strong>Transparence totale :</strong> Accès à toutes les informations de trading</li>
+                                        <li><strong>Assurance professionnelle :</strong> Couverture en cas de force majeure</li>
+                                        <li><strong>Historique vérifiable :</strong> Plus de 1000 clients satisfaits</li>
+                                    </ul>
+                                    <p class="mb-0"><em>Bien que tout investissement comporte des risques, nous mettons tout en œuvre pour les minimiser et maximiser vos chances de succès.</em></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="faq6">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faqCollapse6" aria-expanded="false" aria-controls="faqCollapse6">
+                                    Comment fonctionnent les rendements ?
+                                </button>
+                            </h2>
+                            <div id="faqCollapse6" class="accordion-collapse collapse" aria-labelledby="faq6" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p><strong>Système de rendement transparent et prévisible :</strong></p>
+                                    <ul>
+                                        <li><strong>1 jour :</strong> Rendement x2 (doublement du capital)</li>
+                                        <li><strong>2 jours :</strong> Rendement x4 (quadruplement du capital)</li>
+                                        <li><strong>3 jours :</strong> Rendement x8 (octuplement du capital)</li>
+                                        <li><strong>Exemple concret :</strong> 100 000 FCFA sur 2 jours = 400 000 FCFA</li>
+                                        <li><strong>Paiement garanti :</strong> À la fin de la période choisie</li>
+                                    </ul>
+                                    <p class="mb-0"><em>Les rendements sont calculés automatiquement et vous recevrez le montant exact promis à la fin de votre période d'investissement.</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Footer Start -->
+<div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
+    <div class="container py-5">
+        <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Nos liens</h4>
+                <a class="btn btn-link" href="about.html">À propos</a>
+                <a class="btn btn-link" href="contact.html">Contactez-Nous</a>
+                <a class="btn btn-link" href="service.html">Nos Services</a>
+                <a class="btn btn-link" href="activer-plan.html">Activer un plan</a>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Contact</h4>
+                <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ngueme, Limbe, CMR</p>
+                <p class="mb-2"><i class="bi bi-whatsapp me-3"></i><a href="https://wa.me/237653377867" class="footer-link" target="_blank">(+237) 653 377 867</a></p>
+                <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=laurennekira@gmail.com" class="footer-link">laurennekira@gmail.com</a></p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href="https://t.me/+69L0OXYOnE8zMzZk" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61558114561308" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://wa.me/237653377867" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Galerie</h4>
+                <div class="row g-2 pt-2">
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="images/atess.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="images/conf2.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="images/FORMA2.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="images/ates.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="images/1717493867854.jpg" alt="">
+                    </div>
+                    <div class="col-4">
+                        <img class="img-fluid bg-light p-1" src="images/FORMA.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h4 class="text-white mb-3">Newsletter</h4>
+                <p>Inscrivez-vous pour recevoir des mises à jour et des offres exclusives.</p>
+                <div class="position-relative mx-auto" style="max-width: 400px;">
+                    <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Votre email">
+                    <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">S'inscrire</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="copyright">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom footer-link" href="#">laurennekira.com</a>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <div class="footer-menu">
+                        <a href="https://https://www.facebook.com/profile.php?id=61558114561308" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://t.me/+69L0OXYOnE8zMzZk" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://wa.me/237653377867" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+
+    <!-- Back to Top -->
+  <!-- Bouton WhatsApp flottant -->
+<a href="https://wa.me/237653377867" 
+class="btn-whatsapp" 
+target="_blank">
+<i class="bi bi-whatsapp"></i>
+</a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js"></script>
+<script>
+// Pré-remplissage automatique des champs montant, durée et devise depuis le localStorage
+    document.addEventListener('DOMContentLoaded', function() {
+        const amount = localStorage.getItem('selectedAmount') || '';
+        const duration = localStorage.getItem('chosenDuration') || '';
+        const currency = localStorage.getItem('selectedCurrency') || 'FCFA';
+        
+        // Formater le montant avec la devise
+        let formattedAmount = '';
+        if (amount) {
+            const numAmount = parseInt(amount);
+            if (currency === 'USD') {
+                formattedAmount = numAmount.toLocaleString('en-US') + ' USD';
+            } else {
+                formattedAmount = numAmount.toLocaleString('fr-FR') + ' FCFA';
+            }
+        }
+        
+        var elAmount = document.getElementById('selectedAmount');
+        if(elAmount) elAmount.value = formattedAmount;
+        var elDuration = document.getElementById('chosenDuration');
+        if(elDuration) elDuration.value = duration;
+        // Masquer le label de devise car elle est déjà dans le montant
+        var currencyLabel = document.getElementById('currencyLabel');
+        if(currencyLabel) currencyLabel.style.display = 'none';
+
+        // Toujours retirer le spinner
+        var spinner = document.getElementById('spinner');
+        if(spinner) spinner.classList.remove('show');
+    });
+    
+    // Redirection WhatsApp avec données du formulaire
+    document.getElementById('validationForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = document.getElementById('fullName').value;
+        const country = document.getElementById('country').value;
+        const phoneCountry = document.getElementById('phoneCountry').value;
+        const phoneNumber = document.getElementById('phoneNumber').value;
+        const email = document.getElementById('email').value;
+        const amount = document.getElementById('selectedAmount').value;
+        const duration = document.getElementById('chosenDuration').value;
+        const msg = document.getElementById('optionalMessage').value;
+
+        if (!name || !country || !phoneCountry || !phoneNumber || !email || !amount || !duration) {
+            document.getElementById('valErrorMsg').textContent = 'Veuillez remplir tous les champs obligatoires';
+            return;
+        }
+
+        document.getElementById('valErrorMsg').textContent = '';
+        const fullPhone = phoneCountry ? `+${phoneCountry} ${phoneNumber}` : phoneNumber;
+        const text =
+          "📝 *Nouvelle souscription LaurenneKira* :\n\n" +
+          "👤 *Nom* : " + name + "\n" +
+          "🌍 *Pays* : " + country + "\n" +
+          "📞 *Téléphone* : " + fullPhone + "\n" +
+          "✉️ *Email* : " + email + "\n" +
+          "💰 *Montant sélectionné* : " + amount + "\n" +
+          "⏳ *Durée choisie* : " + duration + "\n" +
+          "📝 *Message* : " + msg;
+
+        const whatsappUrl = `https://wa.me/237653377867?text=${encodeURIComponent(text)}`;
+        window.location.href = whatsappUrl;
+    });
+    
+    // Efface le message d'erreur dès qu'un champ change
+    ['fullName','country','phoneCountry','phoneNumber','email','selectedAmount','chosenDuration'].forEach(id => {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener('input', function(){
+          var valErrorMsg = document.getElementById('valErrorMsg');
+          if(valErrorMsg) valErrorMsg.textContent = '';
+        });
+    });
+    
+    // Affichage du message "Information déjà enregistrée" sur click
+    var elSelectedAmount = document.getElementById('selectedAmount');
+    if(elSelectedAmount) elSelectedAmount.addEventListener('click', function(e) {
+        if (this.hasAttribute('readonly')) {
+            if(typeof showInfoMessage === 'function') showInfoMessage();
+        }
+    });
+    var elChosenDuration = document.getElementById('chosenDuration');
+    if(elChosenDuration) elChosenDuration.addEventListener('click', function(e) {
+        if (this.hasAttribute('readonly')) {
+            if(typeof showInfoMessage === 'function') showInfoMessage();
+        }
+    });
+</script>    
+    function showInfoMessage() {
+        const msg = document.getElementById('infoMessage');
+        msg.textContent = 'Information déjà enregistrée';
+        msg.style.display = '';
+        setTimeout(()=>{ msg.style.display = 'none'; }, 3500);
+    }
+</script>
+</body>
+</html>

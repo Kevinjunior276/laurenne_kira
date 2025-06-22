@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activer un plan</title>
+    <link href="images/PDG.jpg" rel="icon">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        body { background: #fff; }
+        .card { border: none; box-shadow: 0 2px 16px rgba(0,0,0,0.05); }
+        .btn-budget, .btn-duration, .btn-other { min-width: 120px; margin: 0.25rem; }
+        .btn-budget.selected, .btn-duration.selected { background: #2563eb; color: #fff; }
+        .btn-other { background: #f1f5f9; color: #222; }
+        .pricing-table th, .pricing-table td { vertical-align: middle; }
+        .pricing-table a { color: #2563eb; text-decoration: underline; }
+        .pricing-table { background: #fff; border-radius: 10px; }
+        .continue-btn { float: right; }
+        @media (max-width: 600px) {
+            .continue-btn { float: none; width: 100%; margin-top: 1rem; }
+        }
+    </style>
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+</head>
+<body class="activer-plan">
+    <!-- Spinner Start -->
+    <div id="spinner" class="show custom-loader-bg position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="z-index: 9999;">
+      <div class="custom-loader-wrapper">
+        <div class="custom-loader"></div>
+      </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Topbar Start -->
+    <div class="container-fluid bg-light px-5 d-none d-lg-block">
+        <div class="row gx-0">
+            <div class="col-lg-8 text-center text-lg-start mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <small class="me-3 text-blue-200"><i class="fa fa-map-marker-alt me-2"></i>Ngueme, Limbe, CMR</small>
+                    <small class="me-3 text-blue-200"><i class="bi bi-whatsapp me-2"></i></i>(+237) 653 377 867</small>
+                    <small class="text-blue-200"><i class="fa fa-envelope-open me-2"></i>laurennekira@gmail.com</small>
+                </div>
+            </div>
+            <div class="col-lg-4 text-center text-lg-end">
+                <div class="d-inline-flex align-items-center" style="height: 45px;">
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://wa.me/237653377867"><i class="fab fa-whatsapp fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://www.facebook.com/profile.php?id=61558114561308"><i class="fab fa-facebook-f fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://mail.google.com/mail/?view=cm&fs=1&to=laurennekira@gmail.com" target="_blank">
+                        <i class="fa fa-envelope fw-normal"></i>
+                    </a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://t.me/+69L0OXYOnE8zMzZk"><i class="fab fa-telegram fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square" href=""><i class="fab fa-instagram fw-normal"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative p-0">
+        <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
+            <a href="index.html" class="navbar-brand p-0">
+                <h1 class="text-primary m-0">
+                    <img class="border rounded-border" src="images/log.jpg" alt="images"> LKE
+                </h1>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="fa fa-bars"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto py-0">
+                    <a href="index.html" class="nav-item nav-link">Accueil</a>
+                    <a href="about.html" class="nav-item nav-link">A-propos</a>
+                    <a href="service.html" class="nav-item nav-link">Services</a>
+                    <a href="activer-plan.html" class="nav-item nav-link active">Activer un plan</a>
+                    <a href="destination.html" class="nav-item nav-link">Beneficiaire</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+
+    <!-- Hero Header animé -->
+    <div class="container-fluid bg-primary py-5 mb-5 hero-header">
+        <div class="container py-5">
+            <div class="row justify-content-center py-5">
+                <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Activer un plan</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html">Accueil</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Activer un plan</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin Hero Header -->
+
+    <!-- SECTION WORKFLOW/AVANTAGES (inspirée Tailwind, convertie Bootstrap) -->
+    <div class="container py-5">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 order-lg-1 order-2">
+          <h2 class="text-primary mb-2" style="font-size:1.2rem; font-weight:600;">Pourquoi choisir LaurenneKira&nbsp;?</h2>
+          <h3 class="mb-3" style="font-size:2.2rem; font-weight:700;">Investissez, multipliez, profitez</h3>
+          <ul class="list-unstyled mb-4">
+            <li class="mb-3 d-flex align-items-start">
+              <span class="me-3 text-primary"><i class="bi bi-cash-coin" style="font-size:1.5rem;"></i></span>
+              <div><span class="fw-bold">Accessible</span> <span class="text-muted">Dès 10 000 FCFA ou 100 USD.</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <span class="me-3 text-primary"><i class="bi bi-lightning-charge-fill" style="font-size:1.5rem;"></i></span>
+              <div><span class="fw-bold">Rendement rapide</span> <span class="text-muted">x2 en 1 jour, x4 en 2 jours, x8 en 3 jours.</span></div>
+            </li>
+            <li class="mb-3 d-flex align-items-start">
+              <span class="me-3 text-primary"><i class="bi bi-shield-check" style="font-size:1.5rem;"></i></span>
+              <div><span class="fw-bold">Sécurisé</span> <span class="text-muted">Gains garantis, sans frais cachés.</span></div>
+            </li>
+          </ul>
+          <div class="alert alert-info" role="alert" style="font-size:1rem;">
+            <strong>Exemple&nbsp;:</strong> 100 000 FCFA sur 2 jours = 400 000 FCFA.
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0 text-center">
+          <img src="/images/investir-epargner-155131.jpg" alt="Aperçu produit" class="img-fluid rounded shadow" style="max-width:90%;">
+        </div>
+      </div>
+    </div>
+    <!-- FIN SECTION WORKFLOW/AVANTAGES -->
+
+    <div class="container py-5">
+
+        <div class="row mb-4">
+            <div class="col-12">
+                <h5 class="fw-bold mb-3">Simulation de rendement</h5>
+<div class="card p-3 mb-3 wow fadeInLeft" data-wow-delay="0.5s">
+  <div id="simuErrorMsg" class="text-danger mt-2" style="min-height:22px;"></div>
+  <div class="row align-items-center g-2">
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+  <label class="form-label mb-1">Devise</label>
+  <select id="currencySelect" class="form-select mb-2">
+    <option value="fcfa" selected>FCFA</option>
+    <option value="usd">Dollar ($)</option>
+  </select>
+  <label class="form-label mb-1">Montant à investir</label>
+  <select id="amountSelect" class="form-select">
+    <!-- Options injectées dynamiquement -->
+  </select>
+</div>
+    <div class="col-12 col-md-4 mb-2 mb-md-0">
+      <label class="form-label mb-1">Durée (jours)</label>
+      <select id="durationSelect" class="form-select">
+        <option value="">Choisir la durée</option>
+        <option value="1">1 jour</option>
+        <option value="2">2 jours</option>
+        <option value="3">3 jours</option>
+      </select>
+    </div>
+    <div class="col-12 col-md-4">
+      <label class="form-label mb-1">Rendement potentiel</label>
+      <div id="resultBox" class="border rounded p-2 text-center bg-light" style="min-height:42px;">
+        <span id="resultLoader" style="display:none;"><span class="spinner-border spinner-border-sm text-primary"></span> Calcul...</span>
+        <span id="resultValue">—</span>
+      </div>
+    </div>
+  </div>
+</div>
+<button class="btn btn-primary btn-lg continue-btn mt-3 wow fadeInRight" data-wow-delay="0.6s" id="continueBtn" disabled>Continue</button>
+
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Témoignages</h6>
+                <h1 class="mb-5">Ce que disent nos clients!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="images/gabon.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">NGAMOU Floriana</h5>
+                    <p>Camerounaise, Douala</p>
+                    <p class="mb-0">L'accompagnement a été exceptionnel. J'ai recommandé cette équipe à tous mes amis</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="images/koua.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">KOUASSI aimé</h5>
+                    <p>Cote d'ivoire, Bouaké</p>
+                    <p class="mt-2 mb-0">Un service irréprochable, toujours à l'écoute très bien organisée et réactif. Merci à toute l'équipe</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="images/syl.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">NkANI sylvestre</h5>
+                    <p>Gabon, Libreville</p>
+                    <p class="mt-2 mb-0">Une équipe très compétente, qui a su répondre à toutes mes attentes Je recommande vivement</p>
+                </div>
+                <div class="testimonial-item bg-white text-center border p-4">
+                    <img class="bg-white rounded-circle shadow p-1 mx-auto mb-3" src="images/feeee.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Sarah lengo</h5>
+                    <p>Congo, Kinshasa</p>
+                    <p class="mt-2 mb-0">J'ai eu une expérience géniale avec l'équipe. Bakutani na ngai na bosenga na ngai nyonso.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+    <!-- Testimonial End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeInUp" data-wow-delay="1.2s">
+        <div class="container py-5">
+            <div class="row g-5">
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Nos liens</h4>
+                    <a class="btn btn-link" href="about.html">À propos</a>
+                    <a class="btn btn-link" href="contact.html">Contactez-Nous</a>
+                    <a class="btn btn-link" href="service.html">Nos Services</a>
+                    <a class="btn btn-link" href="activer-plan.html">Témoignages</a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Contact</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Ngueme, Limbe, CMR</p>
+                    <p class="mb-2"><i class="bi bi-whatsapp me-3"></i><a href="https://wa.me/237653377867" class="footer-link" target="_blank">(+237) 653 377 867</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=laurennekira@gmail.com" class="footer-link">laurennekira@gmail.com</a></p>
+                    <div class="d-flex pt-2">
+                        <a class="btn btn-outline-light btn-social" href="https://t.me/+69L0OXYOnE8zMzZk" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61558114561308" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://wa.me/237653377867" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Galerie</h4>
+                    <div class="row g-2 pt-2">
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="images/atess.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="images/conf2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="images/FORMA2.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="images/ates.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="images/1717493867854.jpg" alt="">
+                        </div>
+                        <div class="col-4">
+                            <img class="img-fluid bg-light p-1" src="images/FORMA.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-3">Newsletter</h4>
+                    <p>Inscrivez-vous pour recevoir des mises à jour et des offres exclusives.</p>
+                    <div class="position-relative mx-auto" style="max-width: 400px;">
+                        <input class="form-control border-primary w-100 py-3 ps-4 pe-5" type="text" placeholder="Votre email">
+                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">S'inscrire</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="copyright">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom footer-link" href="#">laurennekira.com</a>
+                    </div>
+                    <div class="col-md-6 text-center text-md-end">
+                        <div class="footer-menu">
+                            <a href="https://www.facebook.com/profile.php?id=61558114561308" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://t.me/+69L0OXYOnE8zMzZk" target="_blank"><i class="fab fa-telegram"></i></a>
+                            <a href="https://wa.me/237653377867" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+    <!-- Bouton WhatsApp flottant -->
+    <a href="https://wa.me/237653377867" 
+       class="btn-whatsapp" 
+       target="_blank">
+       <i class="bi bi-whatsapp"></i>
+    </a>
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <!-- Initialisation du carrousel de témoignages -->
+    <script>
+        $(document).ready(function() {
+            $(".testimonial-carousel").owlCarousel({
+                autoplay: true,
+                smartSpeed: 1000,
+                center: true,
+                margin: 24,
+                dots: true,
+                loop: true,
+                nav : false,
+                responsive: {
+                    0:{ items:1 },
+                    768:{ items:2 },
+                    992:{ items:3 }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
