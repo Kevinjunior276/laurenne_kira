@@ -81,6 +81,8 @@
     opacity: 1;
 }
 
+
+
 .text-blue-100 { color: rgba(13, 110, 253, 0.9); }
 .text-blue-200 { color: rgba(13, 110, 253, 0.75); }
 .text-blue-300 { color: rgba(13, 110, 253, 0.6); }
@@ -235,6 +237,90 @@ body.activer-plan .hero-header {
     background-position: center center;
     background-repeat: no-repeat;
 }
+
+/* Animation Escalier LK */
+.staircase-animation {
+  position: relative;
+  width: 320px;
+  height: 180px;
+  margin: 0 auto 32px auto;
+  z-index: 2;
+}
+.stairs {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+.stair {
+  width: 56px;
+  height: 28px;
+  background: #2563eb;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 4px 12px rgba(30,30,60,0.12);
+  margin-right: 2px;
+  margin-left: 2px;
+  opacity: 0.92;
+}
+.stair-1 { height: 28px;   }
+.stair-2 { height: 56px;   }
+.stair-3 { height: 84px;   }
+.stair-4 { height: 112px;  }
+.stair-5 { height: 140px;  }
+
+.letter {
+  position: absolute;
+  font-size: 3.2rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 8px 24px rgba(37,99,235,0.32), 0 2px 0 #2563eb;
+  user-select: none;
+  z-index: 3;
+  transition: filter 0.2s;
+}
+.letter-l {
+  left: 82%;
+  bottom: 140px;
+  animation: bounceL 1.3s cubic-bezier(.53,1.85,.41,.84) infinite;
+}
+.letter-k {
+  left: 50%;
+  bottom: 84px;
+  animation: bounceK 0.9s cubic-bezier(.53,1.85,.41,.84) infinite alternate;
+}
+@keyframes bounceL {
+  0%, 100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 0 #2563eb); }
+  10% { transform: translateY(-10px) scale(1.07); }
+  20% { transform: translateY(-18px) scale(1.12); }
+  30% { transform: translateY(-12px) scale(1.09); }
+  40% { transform: translateY(-5px) scale(1.03); }
+  50% { transform: translateY(0) scale(1); filter: drop-shadow(0 8px 16px #2563eb88); }
+}
+@keyframes bounceK {
+  0% { transform: translateY(-38px) scale(1.13); filter: drop-shadow(0 8px 24px #2563eb99); }
+  30% { transform: translateY(-20px) scale(1.09); }
+  60% { transform: translateY(-10px) scale(1.05); }
+  80% { transform: translateY(-2px) scale(1.01); }
+  100% { transform: translateY(0) scale(1); filter: drop-shadow(0 0 0 #2563eb); }
+}
+@media (max-width: 600px) {
+  .staircase-animation { width: 180px; height: 90px; }
+  .stair { width: 28px; height: 14px; }
+  .stair-1 { height: 14px; }
+  .stair-2 { height: 28px; }
+  .stair-3 { height: 42px; }
+  .stair-4 { height: 56px; }
+  .stair-5 { height: 70px; }
+  .letter { font-size: 1.7rem; }
+  .letter-l { left: 82%; bottom: 70px; }
+  .letter-k { left: 50%; bottom: 42px; }
+}
+/* Fin Animation Escalier LK */
 
 /* Correction responsive mobile pour l'arrière-plan du hero-header et l'animation */
 @media (max-width: 991.98px) {
@@ -696,4 +782,26 @@ body.activer-plan .hero-header {
                 -70px 90px 0 #f2f2f2,
                 -70px 90px 0 rgba(0, 0, 0, 0);
   }
+}
+
+/* Bouton CTA bleu effet survol et clic */
+.btn-cta-blue {
+  background: #2563eb;
+  color: #fff !important;
+  border: none;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+.btn-cta-blue:hover, .btn-cta-blue:focus {
+  background: #1742a7;
+  color: #fff !important;
+  box-shadow: 0 4px 16px rgba(37,99,235,0.18);
+  transform: translateY(-2px) scale(1.03);
+}
+.btn-cta-blue:active {
+  background: #0d2566;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.08);
+  transform: scale(0.97);
 }
