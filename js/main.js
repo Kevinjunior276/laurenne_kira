@@ -255,6 +255,9 @@ continueBtn.addEventListener('click', function(e) {
   localStorage.setItem('selectedAmount', amountSelect.options[amountSelect.selectedIndex].text);
   localStorage.setItem('chosenDuration', durationSelect.options[durationSelect.selectedIndex].text);
   localStorage.setItem('selectedCurrency', currencyLabel);
+  if (resultValue && resultValue.textContent && resultValue.textContent !== '—') {
+  localStorage.setItem('potentialReturn', resultValue.textContent);
+  }
   window.location.href = 'validation.html';
 });
 // Efface le message d'erreur dès qu'un champ change
