@@ -28,10 +28,10 @@
 <body class="activer-plan">
     <!-- Spinner Start -->
     <div id="spinner" class="show custom-loader-bg position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="z-index: 9999;">
-      <div class="custom-loader-wrapper">
-        <div class="custom-loader"></div>
-      </div>
-    </div>
+  <div class="custom-loader-wrapper">
+    <div class="custom-loader"></div>
+  </div>
+</div>
     <!-- Spinner End -->
     <!-- Topbar Start -->
     <div class="container-fluid bg-light px-5 d-none d-lg-block">
@@ -87,6 +87,19 @@
             <div class="row justify-content-center py-5">
                 <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Validation Finale</h1>
+<!-- Animation Escalier LK -->
+<div class="staircase-animation">
+  <div class="stairs">
+    <div class="stair stair-1"></div>
+    <div class="stair stair-2"></div>
+    <div class="stair stair-3"></div>
+    <div class="stair stair-4"></div>
+    <div class="stair stair-5"></div>
+  </div>
+  <div class="letter letter-l">L</div>
+  <div class="letter letter-k">K</div>
+</div>
+<!-- Fin Animation Escalier LK -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="activer-plan.html">Activer un plan</a></li>
@@ -385,29 +398,15 @@ target="_blank">
 <script>
 // Pré-remplissage automatique des champs montant, durée et devise depuis le localStorage
     document.addEventListener('DOMContentLoaded', function() {
-        const amount = localStorage.getItem('selectedAmount') || '';
+        const potentialReturn = localStorage.getItem('potentialReturn') || '';
         const duration = localStorage.getItem('chosenDuration') || '';
-        const currency = localStorage.getItem('selectedCurrency') || 'FCFA';
-        
-        // Formater le montant avec la devise
-        let formattedAmount = '';
-        if (amount) {
-            const numAmount = parseInt(amount);
-            if (currency === 'USD') {
-                formattedAmount = numAmount.toLocaleString('en-US') + ' USD';
-            } else {
-                formattedAmount = numAmount.toLocaleString('fr-FR') + ' FCFA';
-            }
-        }
-        
         var elAmount = document.getElementById('selectedAmount');
-        if(elAmount) elAmount.value = formattedAmount;
+        if(elAmount) elAmount.value = potentialReturn;
         var elDuration = document.getElementById('chosenDuration');
         if(elDuration) elDuration.value = duration;
         // Masquer le label de devise car elle est déjà dans le montant
         var currencyLabel = document.getElementById('currencyLabel');
         if(currencyLabel) currencyLabel.style.display = 'none';
-
         // Toujours retirer le spinner
         var spinner = document.getElementById('spinner');
         if(spinner) spinner.classList.remove('show');
