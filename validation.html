@@ -166,14 +166,15 @@
                 <input type="email" class="form-control" id="email" placeholder="Entrez votre email" required>
             </div>
             <div class="mb-3">
-                <label for="selectedAmount" class="form-label">Montant Sélectionné</label>
-                <div class="input-group">
-                    <input type="text" class="form-control" id="selectedAmount" placeholder="Montant sélectionné" readonly style="background:#f5f7fa;">
-                    <span class="input-group-text" id="currencyLabel"></span>
-                </div>
+                <label for="investedAmount" class="form-label">Montant investi</label>
+                <input type="text" class="form-control" id="investedAmount" placeholder="Montant investi" readonly style="background:#f5f7fa;">
             </div>
             <div class="mb-3">
-                <label for="chosenDuration" class="form-label">Durée Choisie</label>
+                <label for="potentialReturn" class="form-label">Potentiel rendement</label>
+                <input type="text" class="form-control" id="potentialReturn" placeholder="Potentiel rendement" readonly style="background:#f5f7fa;">
+            </div>
+            <div class="mb-3">
+                <label for="chosenDuration" class="form-label">Durée choisie</label>
                 <input type="text" class="form-control" id="chosenDuration" placeholder="Durée choisie" readonly style="background:#f5f7fa;">
             </div>
             <div id="infoMessage" class="text-danger small mt-2" style="display:none;"></div>
@@ -419,12 +420,15 @@ target="_blank">
 <script>
 // Pré-remplissage automatique des champs montant, durée et devise depuis le localStorage
     document.addEventListener('DOMContentLoaded', function() {
+        const investedAmount = localStorage.getItem('selectedAmount') || '';
         const potentialReturn = localStorage.getItem('potentialReturn') || '';
-        const duration = localStorage.getItem('chosenDuration') || '';
-        var elAmount = document.getElementById('selectedAmount');
-        if(elAmount) elAmount.value = potentialReturn;
+        const chosenDuration = localStorage.getItem('chosenDuration') || '';
+        var elInvested = document.getElementById('investedAmount');
+        if(elInvested) elInvested.value = investedAmount;
+        var elPotential = document.getElementById('potentialReturn');
+        if(elPotential) elPotential.value = potentialReturn;
         var elDuration = document.getElementById('chosenDuration');
-        if(elDuration) elDuration.value = duration;
+        if(elDuration) elDuration.value = chosenDuration;
         // Masquer le label de devise car elle est déjà dans le montant
         var currencyLabel = document.getElementById('currencyLabel');
         if(currencyLabel) currencyLabel.style.display = 'none';
@@ -455,6 +459,9 @@ target="_blank">
 
         document.getElementById('valErrorMsg').textContent = '';
         const fullPhone = phoneCountry ? `+${phoneCountry} ${phoneNumber}` : phoneNumber;
+        const investedAmount = document.getElementById('investedAmount').value;
+        const potentialReturn = document.getElementById('potentialReturn').value;
+        const chosenDuration = document.getElementById('chosenDuration').value;
         const text =
           "📝 *Nouvelle souscription LaurenneKira* :\n\n" +
           "🔖 *Motif* : " + motif + "\n" +
@@ -463,8 +470,9 @@ target="_blank">
           "🌍 *Pays* : " + country + "\n" +
           "📞 *Téléphone* : " + fullPhone + "\n" +
           "✉️ *Email* : " + email + "\n" +
-          "💰 *Montant sélectionné* : " + amount + "\n" +
-          "⏳ *Durée choisie* : " + duration + "\n" +
+          "💰 *Montant investi* : " + investedAmount + "\n" +
+          "📈 *Potentiel rendement* : " + potentialReturn + "\n" +
+          "⏳ *Durée choisie* : " + chosenDuration + "\n" +
           "📝 *Message* : " + msg;
 
         const whatsappUrl = `https://wa.me/237653377867?text=${encodeURIComponent(text)}`;
