@@ -448,20 +448,17 @@ target="_blank">
         const phoneCountry = document.getElementById('phoneCountry').value;
         const phoneNumber = document.getElementById('phoneNumber').value;
         const email = document.getElementById('email').value;
-        const amount = document.getElementById('selectedAmount').value;
-        const duration = document.getElementById('chosenDuration').value;
+        const investedAmount = document.getElementById('investedAmount').value;
+        const chosenDuration = document.getElementById('chosenDuration').value;
         const msg = document.getElementById('optionalMessage').value;
 
-        if (!motif || !paymentMethod || !name || !country || !phoneCountry || !phoneNumber || !email || !amount || !duration) {
+        if (!motif || !paymentMethod || !name || !country || !phoneCountry || !phoneNumber || !email || !investedAmount || !chosenDuration) {
             document.getElementById('valErrorMsg').textContent = 'Veuillez remplir tous les champs obligatoires';
             return;
         }
 
         document.getElementById('valErrorMsg').textContent = '';
         const fullPhone = phoneCountry ? `+${phoneCountry} ${phoneNumber}` : phoneNumber;
-        const investedAmount = document.getElementById('investedAmount').value;
-        const potentialReturn = document.getElementById('potentialReturn').value;
-        const chosenDuration = document.getElementById('chosenDuration').value;
         const text =
           "📝 *Nouvelle souscription LaurenneKira* :\n\n" +
           "🔖 *Motif* : " + motif + "\n" +
@@ -480,7 +477,7 @@ target="_blank">
     });
     
     // Efface le message d'erreur dès qu'un champ change
-    ['fullName','country','phoneCountry','phoneNumber','email','selectedAmount','chosenDuration'].forEach(id => {
+    ['fullName','country','phoneCountry','phoneNumber','email','investedAmount','chosenDuration'].forEach(id => {
         var el = document.getElementById(id);
         if (el) el.addEventListener('input', function(){
           var valErrorMsg = document.getElementById('valErrorMsg');
@@ -489,8 +486,8 @@ target="_blank">
     });
     
     // Affichage du message "Information déjà enregistrée" sur click
-    var elSelectedAmount = document.getElementById('selectedAmount');
-    if(elSelectedAmount) elSelectedAmount.addEventListener('click', function(e) {
+    var elInvestedAmount = document.getElementById('investedAmount');
+    if(elInvestedAmount) elInvestedAmount.addEventListener('click', function(e) {
         if (this.hasAttribute('readonly')) {
             if(typeof showInfoMessage === 'function') showInfoMessage();
         }
