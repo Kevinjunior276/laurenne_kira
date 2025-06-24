@@ -449,10 +449,11 @@ target="_blank">
         const phoneNumber = document.getElementById('phoneNumber').value;
         const email = document.getElementById('email').value;
         const investedAmount = document.getElementById('investedAmount').value;
+        const potentialReturn = document.getElementById('potentialReturn').value;
         const chosenDuration = document.getElementById('chosenDuration').value;
         const msg = document.getElementById('optionalMessage').value;
 
-        if (!motif || !paymentMethod || !name || !country || !phoneCountry || !phoneNumber || !email || !investedAmount || !chosenDuration) {
+        if (!motif || !paymentMethod || !name || !country || !phoneCountry || !phoneNumber || !email || !investedAmount || !potentialReturn || !chosenDuration) {
             document.getElementById('valErrorMsg').textContent = 'Veuillez remplir tous les champs obligatoires';
             return;
         }
