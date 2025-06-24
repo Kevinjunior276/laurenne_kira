@@ -87,6 +87,8 @@
             <div class="row justify-content-center py-5">
                 <div class="col-lg-10 pt-lg-5 mt-lg-5 text-center">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Validation Finale</h1>
+<!-- Animation Escalier LK -->
+<!-- Fin Animation Escalier LK -->
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center">
                             <li class="breadcrumb-item"><a href="activer-plan.html">Activer un plan</a></li>
@@ -101,6 +103,10 @@
     <div class="validation-container bg-white rounded shadow p-4 mb-5" style="max-width: 540px; margin: -120px auto 0; position: relative; z-index: 2;">
         <h2 class="fw-bold mb-4 text-center">Validation Finale</h2>
         <form id="validationForm">
+            <div class="mb-3">
+                <label for="motif" class="form-label">Motif</label>
+                <input type="text" class="form-control" id="motif" value="Investissement" readonly style="background:#f5f7fa;">
+            </div>
             <div class="mb-3">
                 <label for="fullName" class="form-label">Nom Complet</label>
                 <input type="text" class="form-control" id="fullName" placeholder="Entrez votre nom complet" required>
@@ -120,6 +126,20 @@
                     <option value="Mali">🇲🇱 Mali</option>
                     <option value="Haïti">🇭🇹 Haïti</option>
                     <option value="Autre">🌍 Autre</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="paymentMethod" class="form-label">Moyen de paiement</label>
+                <select class="form-select" id="paymentMethod" required>
+                    <option value="">Choisissez un moyen de paiement</option>
+                    <option value="OrangeMoney">🟧 OrangeMoney</option>
+                    <option value="MTNMoney">🟨 MTNMoney</option>
+                    <option value="MoovMoney/Flooz">🟩 MoovMoney/Flooz</option>
+                    <option value="Togocel">🟦 Togocel</option>
+                    <option value="Wave">🐧 Wave</option>
+                    <option value="M-Pessa">💳 M-Pessa</option>
+                    <option value="AirtelMoney">🟥 AirtelMoney</option>
+                    <option value="Virement Bancaire">🏦 Virement Bancaire</option>
                 </select>
             </div>
             <div class="mb-3">
@@ -186,7 +206,7 @@
                                         <li><strong>Validation :</strong> Moins de 24 heures après soumission du formulaire</li>
                                         <li><strong>Activation :</strong> Immédiate après validation et réception du paiement</li>
                                         <li><strong>Suivi :</strong> Mises à jour quotidiennes sur l'évolution de votre investissement</li>
-                                        <li><strong>Rendement :</strong> Selon la durée choisie (1, 2 ou 3 jours)</li>
+                                        <li><strong>Rendement :</strong> Selon la durée choisie (24H, 2 jours ou 3 jours)</li>
                                     </ul>
                                     <p class="mb-0"><em>Notre équipe s'engage à traiter votre demande dans les plus brefs délais pour maximiser vos opportunités d'investissement.</em></p>
                                 </div>
@@ -204,6 +224,17 @@
                                     <ul>
                                         <li><strong>FCFA :</strong> À partir de 10 000 FCFA (montant minimum)</li>
                                         <li><strong>USD :</strong> À partir de 100 USD (montant minimum)</li>
+                                        <li><strong>Plans USD disponibles :</strong><br>
+                                            <ul>
+                                                <li>100 $ → 800 $ en 24H</li>
+                                                <li>150 $ → 1300 $ en 24H</li>
+                                                <li>200 $ → 1900 $ en 24H</li>
+                                                <li>500 $ → 4100 $ en 24H</li>
+                                                <li>1000 $ → 9000 $ en 24H</li>
+                                                <li>3000 $ → 12000 $ en 24H</li>
+                                            </ul>
+                                        </li>
+                                        <li><strong>Durée USD :</strong> <span class="text-primary">fixée à 24H</span></li>
                                         <li><strong>Pas de limite maximale</strong> - investissez selon vos capacités</li>
                                         <li><strong>Montants recommandés :</strong> 50 000 FCFA à 500 000 FCFA pour un meilleur rendement</li>
                                     </ul>
@@ -219,16 +250,19 @@
                             </h2>
                             <div id="faqCollapse3" class="accordion-collapse collapse" aria-labelledby="faq3" data-bs-parent="#faqAccordion">
                                 <div class="accordion-body">
-                                    <p><strong>Moyens de paiement sécurisés et variés :</strong></p>
-                                    <ul>
-                                        <li><strong>Mobile Money :</strong> MTN Mobile Money, Orange Money</li>
-                                        <li><strong>Transferts bancaires :</strong> Toutes les banques locales</li>
-                                        <li><strong>Paiements en espèces :</strong> Dans nos bureaux à Ngueme, Limbe</li>
-                                        <li><strong>Cryptomonnaies :</strong> Bitcoin, Ethereum (sur demande)</li>
-                                        <li><strong>Cartes bancaires :</strong> Visa, Mastercard (en développement)</li>
-                                    </ul>
-                                    <p class="mb-0"><em>Tous les paiements sont sécurisés et vous recevrez un reçu officiel pour chaque transaction.</em></p>
-                                </div>
+  <p><strong>Moyens de paiement disponibles :</strong></p>
+  <ul>
+    <li><strong>OrangeMoney</strong></li>
+    <li><strong>MTNMoney</strong></li>
+    <li><strong>MoovMoney/Flooz</strong></li>
+    <li><strong>Togocel</strong></li>
+    <li><strong>Wave</strong></li>
+    <li><strong>M-Pessa</strong></li>
+    <li><strong>AirtelMoney</strong></li>
+    <li><strong>Virement Bancaire</strong></li>
+  </ul>
+  <p class="mb-0"><em>Tous les paiements sont sécurisés et vous recevrez un reçu officiel pour chaque transaction.</em></p>
+</div>
                             </div>
                         </div>
                         <div class="accordion-item">
@@ -281,7 +315,7 @@
                                 <div class="accordion-body">
                                     <p><strong>Système de rendement transparent et prévisible :</strong></p>
                                     <ul>
-                                        <li><strong>1 jour :</strong> Rendement x2 (doublement du capital)</li>
+                                        <li><strong>24H :</strong> Rendement x2 (doublement du capital)</li>
                                         <li><strong>2 jours :</strong> Rendement x4 (quadruplement du capital)</li>
                                         <li><strong>3 jours :</strong> Rendement x8 (octuplement du capital)</li>
                                         <li><strong>Exemple concret :</strong> 100 000 FCFA sur 2 jours = 400 000 FCFA</li>
@@ -403,6 +437,8 @@ target="_blank">
     document.getElementById('validationForm').addEventListener('submit', function(e) {
         e.preventDefault();
 
+        const motif = document.getElementById('motif').value;
+        const paymentMethod = document.getElementById('paymentMethod').value;
         const name = document.getElementById('fullName').value;
         const country = document.getElementById('country').value;
         const phoneCountry = document.getElementById('phoneCountry').value;
@@ -412,7 +448,7 @@ target="_blank">
         const duration = document.getElementById('chosenDuration').value;
         const msg = document.getElementById('optionalMessage').value;
 
-        if (!name || !country || !phoneCountry || !phoneNumber || !email || !amount || !duration) {
+        if (!motif || !paymentMethod || !name || !country || !phoneCountry || !phoneNumber || !email || !amount || !duration) {
             document.getElementById('valErrorMsg').textContent = 'Veuillez remplir tous les champs obligatoires';
             return;
         }
@@ -421,6 +457,8 @@ target="_blank">
         const fullPhone = phoneCountry ? `+${phoneCountry} ${phoneNumber}` : phoneNumber;
         const text =
           "📝 *Nouvelle souscription LaurenneKira* :\n\n" +
+          "🔖 *Motif* : " + motif + "\n" +
+          "💳 *Moyen de paiement* : " + paymentMethod + "\n" +
           "👤 *Nom* : " + name + "\n" +
           "🌍 *Pays* : " + country + "\n" +
           "📞 *Téléphone* : " + fullPhone + "\n" +
@@ -455,15 +493,9 @@ target="_blank">
             if(typeof showInfoMessage === 'function') showInfoMessage();
         }
     });
-</script> 
 
- <script>
-    function showInfoMessage() {
-        const msg = document.getElementById('infoMessage');
-        msg.textContent = 'Information déjà enregistrée';
-        msg.style.display = '';
-        setTimeout(()=>{ msg.style.display = 'none'; }, 3500);
-    }
+</script>    
+
 </script>
 </body>
 </html>
