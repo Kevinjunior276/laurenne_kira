@@ -382,5 +382,3 @@ const amounts = {
 const currencyLabels = { fcfa: 'FCFA', usd: 'USD' };
 
 // SUPPRIMER la fonction renderAmountOptions redéfinie ici (et ne rien mettre à la place)
-
-// --- Fin logique devise/montant centralisée ---
