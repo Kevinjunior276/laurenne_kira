@@ -110,28 +110,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Animation countdown (sécurisé)
 document.addEventListener('DOMContentLoaded', () => {
-  if (document.getElementById("days")) {
-      let countdownDate = new Date();
-      countdownDate.setDate(countdownDate.getDate() + 16);
-      countdownDate.setHours(countdownDate.getHours() + 5);
-      function updateCountdown() {
-          const now = new Date().getTime();
-          const distance = countdownDate.getTime() - now;
-          if (distance < 0) {
-              document.querySelector('.countdown').innerHTML = "Temps écoulé !";
-              return;
-          }
-          const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
-          const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-          const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-          const secondes = Math.floor((distance % (1000 * 60)) / 1000);
-          document.getElementById("days").textContent = String(jours).padStart(2, '0');
-          document.getElementById("hours").textContent = String(heures).padStart(2, '0');
-          document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-          document.getElementById("seconds").textContent = String(secondes).padStart(2, '0');
+  // Date de fin universelle (UTC). Modifie ici si tu veux une autre date !
+  const END_UTC = '2025-07-01T00:00:00Z';
+  const countdownDate = new Date(END_UTC);
+  // Vérifie la présence des éléments pour éviter les erreurs JS
+  const daysEl = document.getElementById("days");
+  const hoursEl = document.getElementById("hours");
+  const minutesEl = document.getElementById("minutes");
+  const secondsEl = document.getElementById("seconds");
+  const countdownBox = document.querySelector('.countdown');
+  if (daysEl && hoursEl && minutesEl && secondsEl && countdownBox) {
+    function updateCountdown() {
+      // On prend le temps actuel en UTC
+      const now = new Date();
+      const nowUtc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
+      const distance = countdownDate.getTime() - nowUtc.getTime();
+      if (distance <= 0) {
+        countdownBox.innerHTML = "Temps écoulé !";
+        return;
       }
-      setInterval(updateCountdown, 1000);
-      updateCountdown();
+      const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const secondes = Math.floor((distance % (1000 * 60)) / 1000);
+      daysEl.textContent = String(jours).padStart(2, '0');
+      hoursEl.textContent = String(heures).padStart(2, '0');
+      minutesEl.textContent = String(minutes).padStart(2, '0');
+      secondsEl.textContent = String(secondes).padStart(2, '0');
+    }
+    setInterval(updateCountdown, 1000);
+    updateCountdown();
   }
 });
 
