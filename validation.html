@@ -50,7 +50,7 @@
                     <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square rounded-circle me-2" href="https://mail.google.com/mail/?view=cm&fs=1&to=laurennekira@gmail.com" target="_blank">
                         <i class="fa fa-envelope fw-normal"></i>
                     </a>
-                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square me-2" href="https://t.me/+69L0OXYOnE8zMzZk"><i class="fab fa-telegram fw-normal"></i></a>
+                    <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square me-2" href="https://t.me/+4j-8zzB_nC80MmY0"><i class="fab fa-telegram fw-normal"></i></a>
                     <a class="text-blue-200 btn btn-sm btn-outline-light btn-sm-square" href="#"><i class="fab fa-instagram fw-normal"></i></a>
                 </div>
             </div>
@@ -130,17 +130,70 @@
             </div>
             <div class="mb-3">
                 <label for="paymentMethod" class="form-label">Moyen de paiement</label>
-                <select class="form-select" id="paymentMethod" required>
-                    <option value="">Choisissez un moyen de paiement</option>
-                    <option value="OrangeMoney">🟧 OrangeMoney</option>
-                    <option value="MTNMoney">🟨 MTNMoney</option>
-                    <option value="MoovMoney/Flooz">🟩 MoovMoney/Flooz</option>
-                    <option value="Togocel">🟦 Togocel</option>
-                    <option value="Wave">🐧 Wave</option>
-                    <option value="M-Pessa">💳 M-Pessa</option>
-                    <option value="AirtelMoney">🟥 AirtelMoney</option>
-                    <option value="Virement Bancaire">🏦 Virement Bancaire</option>
+                <!-- Custom payment method dropdown with images -->
+                <div id="customPaymentDropdown" class="dropdown mb-2">
+                  <button class="btn btn-light border w-100 d-flex align-items-center justify-content-between" type="button" id="dropdownPaymentBtn" data-bs-toggle="dropdown" aria-expanded="false" style="font-family: inherit; font-size: inherit; font-weight: inherit; color: #343a40;">
+                    <span id="selectedPaymentLogo" class="d-flex align-items-center">
+  <img src="" alt="" style="height:24px; width:24px; display:none; margin-right:8px;" id="selectedPaymentImg">
+  <span id="selectedPaymentText">Choisissez un moyen de paiement</span>
+</span>
+<span class="ms-2"><i class="bi bi-chevron-down"></i></span>
+</button>
+                  <ul class="dropdown-menu w-100" aria-labelledby="dropdownPaymentBtn" style="max-height:240px; overflow-y:auto; font-family: inherit; font-size: inherit; font-weight: inherit; color: #343a40;">
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="OrangeMoney"><img src="images/Orange.jpg" alt="OrangeMoney" style="height:24px; width:24px; margin-right:8px;">OrangeMoney</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="MTNMoney"><img src="images/MobileMoney.jpg" alt="MTNMoney" style="height:24px; width:24px; margin-right:8px;">MTNMoney</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="MoovMoney/Flooz"><img src="images/MoovMoney.jpg" alt="MoovMoney/Flooz" style="height:24px; width:24px; margin-right:8px;">MoovMoney/Flooz</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="Togocel"><img src="images/TMoney.jpg" alt="Togocel" style="height:24px; width:24px; margin-right:8px;">Togocel</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="Wave"><img src="images/Wave.jpg" alt="Wave" style="height:24px; width:24px; margin-right:8px;">Wave</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="M-Pessa"><img src="images/Mapessa.jpg" alt="M-Pessa" style="height:24px; width:24px; margin-right:8px;">M-Pessa</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="AirtelMoney"><img src="images/AirtelMoney.jpg" alt="AirtelMoney" style="height:24px; width:24px; margin-right:8px;">AirtelMoney</a></li>
+                    <li><a class="dropdown-item d-flex align-items-center" href="#" data-value="Virement Bancaire"><img src="images/carteBancaire.jpg" alt="Virement Bancaire" style="height:24px; width:24px; margin-right:8px;">Virement Bancaire</a></li>
+                  </ul>
+                </div>
+                <!-- Hidden select for form compatibility -->
+                <select class="form-select d-none" id="paymentMethod" name="paymentMethod" required>
+                  <option value="">Choisissez un moyen de paiement</option>
+                  <option value="OrangeMoney">OrangeMoney</option>
+                  <option value="MTNMoney">MTNMoney</option>
+                  <option value="MoovMoney/Flooz">MoovMoney/Flooz</option>
+                  <option value="Togocel">Togocel</option>
+                  <option value="Wave">Wave</option>
+                  <option value="M-Pessa">M-Pessa</option>
+                  <option value="AirtelMoney">AirtelMoney</option>
+                  <option value="Virement Bancaire">Virement Bancaire</option>
                 </select>
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  var dropdownItems = document.querySelectorAll('#customPaymentDropdown .dropdown-item');
+                  var paymentSelect = document.getElementById('paymentMethod');
+                  var selectedImg = document.getElementById('selectedPaymentImg');
+                  var selectedText = document.getElementById('selectedPaymentText');
+                  dropdownItems.forEach(function(item) {
+                    item.addEventListener('click', function(e) {
+                      e.preventDefault();
+                      var value = this.getAttribute('data-value');
+                      var label = this.textContent.trim();
+                      var img = this.querySelector('img').getAttribute('src');
+                      // Update button
+                      selectedImg.setAttribute('src', img);
+                      selectedImg.style.display = '';
+                      selectedText.textContent = label;
+                      // Update select
+                      paymentSelect.value = value;
+                      // Close dropdown (Bootstrap 5)
+                      var dropdown = bootstrap.Dropdown.getOrCreateInstance(document.getElementById('dropdownPaymentBtn'));
+                      dropdown.hide();
+                    });
+                  });
+                  // Reset image if no selection
+                  paymentSelect.addEventListener('change', function() {
+                    if (!this.value) {
+                      selectedImg.style.display = 'none';
+                      selectedText.textContent = 'Choisissez un moyen de paiement';
+                    }
+                  });
+                });
+                </script>
             </div>
             <div class="mb-3">
                 <label for="phoneCountry" class="form-label">Pays du numéro de téléphone</label>
@@ -349,7 +402,7 @@
                 <p class="mb-2"><i class="bi bi-whatsapp me-3"></i><a href="https://wa.me/237653377867" class="footer-link" target="_blank">(+237) 653 377 867</a></p>
                 <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="https://mail.google.com/mail/?view=cm&fs=1&to=laurennekira@gmail.com" class="footer-link">laurennekira@gmail.com</a></p>
                 <div class="d-flex pt-2">
-                    <a class="btn btn-outline-light btn-social" href="https://t.me/+69L0OXYOnE8zMzZk" target="_blank"><i class="fab fa-telegram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href="https://t.me/+4j-8zzB_nC80MmY0" target="_blank"><i class="fab fa-telegram"></i></a>
                     <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61558114561308" target="_blank"><i class="fab fa-facebook-f"></i></a>
                     <a class="btn btn-outline-light btn-social" href="https://wa.me/237653377867" target="_blank"><i class="fab fa-whatsapp"></i></a>
                 </div>
@@ -396,7 +449,7 @@
                 <div class="col-md-6 text-center text-md-end">
                     <div class="footer-menu">
                         <a href="https://https://www.facebook.com/profile.php?id=61558114561308" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://t.me/+69L0OXYOnE8zMzZk" target="_blank"><i class="fab fa-telegram"></i></a>
+                        <a href="https://t.me/+4j-8zzB_nC80MmY0" target="_blank"><i class="fab fa-telegram"></i></a>
                         <a href="https://wa.me/237653377867" target="_blank"><i class="fab fa-whatsapp"></i></a>
                     </div>
                 </div>
