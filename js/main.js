@@ -108,11 +108,12 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Animation countdown (sécurisé)
+// Animation countdown (périodique et synchronisé)
 document.addEventListener('DOMContentLoaded', () => {
-  // Date de fin universelle (UTC). Modifie ici si tu veux une autre date !
-  const END_UTC = '2025-07-01T00:00:00Z';
-  const countdownDate = new Date(END_UTC);
+  // Date de référence universelle : aujourd'hui à minuit UTC
+  const now = new Date();
+  const referenceDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
+  const periodMs = 15 * 24 * 60 * 60 * 1000; // 15 jours en millisecondes
   // Vérifie la présence des éléments pour éviter les erreurs JS
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
@@ -120,12 +121,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const secondsEl = document.getElementById("seconds");
   const countdownBox = document.querySelector('.countdown');
   if (daysEl && hoursEl && minutesEl && secondsEl && countdownBox) {
+    function getNextDeadline(current) {
+      const elapsed = current.getTime() - referenceDate.getTime();
+      const periods = Math.floor(elapsed / periodMs);
+      return new Date(referenceDate.getTime() + (periods + 1) * periodMs);
+    }
     function updateCountdown() {
-      // On prend le temps actuel en UTC
-      const now = new Date();
-      const nowUtc = new Date(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), now.getUTCHours(), now.getUTCMinutes(), now.getUTCSeconds());
-      const distance = countdownDate.getTime() - nowUtc.getTime();
-      if (distance <= 0) {
+      const current = new Date();
+      const deadline = getNextDeadline(current);
+      const distance = deadline.getTime() - current.getTime();
+      if (distance < 0) {
         countdownBox.innerHTML = "Temps écoulé !";
         return;
       }
