@@ -153,57 +153,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // Correction : active le bouton Continue si les champs sont déjà remplis
   if (typeof calculateReturn === 'function') calculateReturn();
 
-  // Exécuter ce code UNIQUEMENT sur validation.html
-  if (window.location.pathname.includes('validation.html')) {
-      const validationForm = document.getElementById('validationForm');
-      if (validationForm) {
-          validationForm.addEventListener('submit', function(e) {
-              e.preventDefault();
-              console.log('Formulaire validation soumis : JS actif'); // Test debug
-              // Récupération des champs
-              const nom = document.getElementById('fullName').value;
-              const pays = document.getElementById('country').value;
-              const ville = document.getElementById('city').value;
-              const email = document.getElementById('email').value;
-              const recu = document.getElementById('receiptNumber').value;
-              const montant = document.getElementById('selectedAmount').value;
-              const devise = document.getElementById('currencyLabel').textContent;
-              const duree = document.getElementById('chosenDuration').value;
-              const messageOpt = document.getElementById('optionalMessage').value;
-              const moyen = document.getElementById('paymentMethod').value;
-              const emojiMoyen = {
-                'OrangeMoney': '🟧',
-                'MTNMoney': '🟨',
-                'MoovMoney/Flooz': '🟩',
-                'Togocel': '🟦',
-                'Wave': '🐧',
-                'M-Pessa': '💳',
-                'AirtelMoney': '🟥',
-                'Virement Bancaire': '🏦'
-              };
-              const emoji = emojiMoyen[moyen] || '';
-
-              let texte = `📝 Validation de souscription\n`;
-              texte += `👤 Nom: ${nom}\n`;
-              texte += `🌎 Pays: ${pays}\n`;
-              texte += `🏙️ Ville: ${ville}\n`;
-              texte += `✉️ Email: ${email}\n`;
-              texte += `🧾 Numéro de reçu: ${recu}\n`;
-              texte += `💰 Montant: ${montant} ${devise}\n`;
-              texte += `⏳ Durée: ${duree}\n`;
-              if (messageOpt) texte += `💬 Message: ${messageOpt}\n`;
-              if (emoji && moyen) texte += `💳 Moyen de paiement: ${emoji} ${moyen}\n`;
-              texte += `-----------------------------\n`;
-              texte += `Voir les logos ici : https://laurennekira.com/paiements.html\n`;
-
-              const texteEncode = encodeURIComponent(texte);
-              const numero = '237653377867'; // Remplace par ton numéro WhatsApp si besoin
-              const url = `https://wa.me/${numero}?text=${texteEncode}`;
-              window.location.href = url;
-          });
-      }
-  }
-
   // Restaure la devise si elle existe en localStorage
   if (currencySelect) {
       const savedCurrency = localStorage.getItem('selectedCurrency');
