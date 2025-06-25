@@ -170,16 +170,31 @@ document.addEventListener('DOMContentLoaded', function() {
               const devise = document.getElementById('currencyLabel').textContent;
               const duree = document.getElementById('chosenDuration').value;
               const messageOpt = document.getElementById('optionalMessage').value;
+              const moyen = document.getElementById('paymentMethod').value;
+              const emojiMoyen = {
+                'OrangeMoney': '🟧',
+                'MTNMoney': '🟨',
+                'MoovMoney/Flooz': '🟩',
+                'Togocel': '🟦',
+                'Wave': '🐧',
+                'M-Pessa': '💳',
+                'AirtelMoney': '🟥',
+                'Virement Bancaire': '🏦'
+              };
+              const emoji = emojiMoyen[moyen] || '';
 
-              let texte = `Validation de souscription\n`;
-              texte += `Nom: ${nom}\n`;
-              texte += `Pays: ${pays}\n`;
-              texte += `Ville: ${ville}\n`;
-              texte += `Email: ${email}\n`;
-              texte += `Numéro de reçu: ${recu}\n`;
-              texte += `Montant: ${montant} ${devise}\n`;
-              texte += `Durée: ${duree}\n`;
-              if (messageOpt) texte += `Message: ${messageOpt}\n`;
+              let texte = `📝 Validation de souscription\n`;
+              texte += `👤 Nom: ${nom}\n`;
+              texte += `🌎 Pays: ${pays}\n`;
+              texte += `🏙️ Ville: ${ville}\n`;
+              texte += `✉️ Email: ${email}\n`;
+              texte += `🧾 Numéro de reçu: ${recu}\n`;
+              texte += `💰 Montant: ${montant} ${devise}\n`;
+              texte += `⏳ Durée: ${duree}\n`;
+              if (messageOpt) texte += `💬 Message: ${messageOpt}\n`;
+              if (emoji && moyen) texte += `💳 Moyen de paiement: ${emoji} ${moyen}\n`;
+              texte += `-----------------------------\n`;
+              texte += `Voir les logos ici : https://laurennekira.com/paiements.html\n`;
 
               const texteEncode = encodeURIComponent(texte);
               const numero = '237653377867'; // Remplace par ton numéro WhatsApp si besoin
