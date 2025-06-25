@@ -597,44 +597,6 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Date de référence universelle : aujourd'hui à minuit UTC
-        const now = new Date();
-        const referenceDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
-        const periodMs = 15 * 24 * 60 * 60 * 1000; // 15 jours en millisecondes
-
-        function getNextDeadline(current) {
-            const elapsed = current.getTime() - referenceDate.getTime();
-            const periods = Math.floor(elapsed / periodMs);
-            return new Date(referenceDate.getTime() + (periods + 1) * periodMs);
-        }
-
-        function updateCountdown() {
-            const current = new Date();
-            const deadline = getNextDeadline(current);
-            const distance = deadline.getTime() - current.getTime();
-
-            if (distance < 0) {
-                setTimeout(updateCountdown, 1000);
-                return;
-            }
-
-            const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const secondes = Math.floor((distance % (1000 * 60)) / 1000);
-
-            if (document.getElementById("days")) document.getElementById("days").textContent = String(jours).padStart(2, '0');
-            if (document.getElementById("hours")) document.getElementById("hours").textContent = String(heures).padStart(2, '0');
-            if (document.getElementById("minutes")) document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
-            if (document.getElementById("seconds")) document.getElementById("seconds").textContent = String(secondes).padStart(2, '0');
-        }
-
-        setInterval(updateCountdown, 1000);
-        updateCountdown();
-    });
-    </script>
 </body>
 
 </html>
