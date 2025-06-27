@@ -27,13 +27,19 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 </head>
 <body class="activer-plan">
-    <!-- Spinner Start -->
-    <div id="spinner" class="show custom-loader-bg position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center" style="z-index: 9999;">
-      <div class="custom-loader-wrapper">
-        <div class="custom-loader"></div>
-      </div>
+<!-- Spinner Start -->
+<div id="spinner" class="show position-fixed w-100 vh-100 top-0 start-0 d-flex align-items-center justify-content-center"
+  style="z-index: 9999; background: #111;">
+  <div>
+    <div class="custom-svg-loader">
+      <svg width="64px" height="48px">
+        <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="back" />
+        <polyline points="0.157 23.954, 14 23.954, 21.843 48, 43 0, 50 24, 64 24" id="front" />
+      </svg>
     </div>
-    <!-- Spinner End -->
+  </div>
+</div>
+<!-- Spinner End -->
 
     <!-- Topbar Start -->
     <div class="container-fluid bg-light px-5 d-none d-lg-block">
