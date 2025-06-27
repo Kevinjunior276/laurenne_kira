@@ -108,32 +108,34 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Animation countdown (périodique et synchronisé)
+// Compte à rebours cyclique de 15 jours
+// Dès que le temps est écoulé, un nouveau cycle de 15 jours recommence automatiquement
+
 document.addEventListener('DOMContentLoaded', () => {
-  // Date de référence universelle : aujourd'hui à minuit UTC
-  const now = new Date();
-  const referenceDate = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
+  // Date de départ du premier cycle (exemple : aujourd'hui à minuit UTC)
+  const getCycleStart = () => {
+    const now = new Date();
+    return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
+  };
   const periodMs = 15 * 24 * 60 * 60 * 1000; // 15 jours en millisecondes
-  // Vérifie la présence des éléments pour éviter les erreurs JS
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
   const secondsEl = document.getElementById("seconds");
   const countdownBox = document.querySelector('.countdown');
   if (daysEl && hoursEl && minutesEl && secondsEl && countdownBox) {
-    function getNextDeadline(current) {
-      const elapsed = current.getTime() - referenceDate.getTime();
-      const periods = Math.floor(elapsed / periodMs);
-      return new Date(referenceDate.getTime() + (periods + 1) * periodMs);
+    function getCurrentCycleDeadline() {
+      const now = new Date();
+      const cycleStart = getCycleStart();
+      const elapsed = now.getTime() - cycleStart.getTime();
+      const cycles = Math.floor(elapsed / periodMs);
+      return new Date(cycleStart.getTime() + (cycles + 1) * periodMs);
     }
     function updateCountdown() {
-      const current = new Date();
-      const deadline = getNextDeadline(current);
-      const distance = deadline.getTime() - current.getTime();
-      if (distance < 0) {
-        countdownBox.innerHTML = "Temps écoulé !";
-        return;
-      }
+      const now = new Date();
+      const deadline = getCurrentCycleDeadline();
+      let distance = deadline.getTime() - now.getTime();
+      if (distance < 0) distance = 0;
       const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
       const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -142,6 +144,10 @@ document.addEventListener('DOMContentLoaded', () => {
       hoursEl.textContent = String(heures).padStart(2, '0');
       minutesEl.textContent = String(minutes).padStart(2, '0');
       secondsEl.textContent = String(secondes).padStart(2, '0');
+      // Si le temps est écoulé, relancer le cycle
+      if (distance === 0) {
+        setTimeout(updateCountdown, 1000); // relance immédiate
+      }
     }
     setInterval(updateCountdown, 1000);
     updateCountdown();
