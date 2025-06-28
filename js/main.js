@@ -112,44 +112,44 @@ document.addEventListener('DOMContentLoaded', () => {
 // Dès que le temps est écoulé, un nouveau cycle de 15 jours recommence automatiquement
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Date de départ du premier cycle (exemple : aujourd'hui à minuit UTC)
-  const getCycleStart = () => {
-    const now = new Date();
-    return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate(), 0, 0, 0));
-  };
-  const periodMs = 15 * 24 * 60 * 60 * 1000; // 15 jours en millisecondes
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
   const secondsEl = document.getElementById("seconds");
-  const countdownBox = document.querySelector('.countdown');
-  if (daysEl && hoursEl && minutesEl && secondsEl && countdownBox) {
-    function getCurrentCycleDeadline() {
-      const now = new Date();
-      const cycleStart = getCycleStart();
-      const elapsed = now.getTime() - cycleStart.getTime();
-      const cycles = Math.floor(elapsed / periodMs);
-      return new Date(cycleStart.getTime() + (cycles + 1) * periodMs);
-    }
+  
+  if (daysEl && hoursEl && minutesEl && secondsEl) {
+    // Date de fin du cycle actuel (15 jours à partir de maintenant)
+    let targetDate = new Date();
+    targetDate.setDate(targetDate.getDate() + 15);
+    
     function updateCountdown() {
       const now = new Date();
-      const deadline = getCurrentCycleDeadline();
-      let distance = deadline.getTime() - now.getTime();
-      if (distance < 0) distance = 0;
-      const jours = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const heures = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const secondes = Math.floor((distance % (1000 * 60)) / 1000);
-      daysEl.textContent = String(jours).padStart(2, '0');
-      hoursEl.textContent = String(heures).padStart(2, '0');
-      minutesEl.textContent = String(minutes).padStart(2, '0');
-      secondsEl.textContent = String(secondes).padStart(2, '0');
-      // Si le temps est écoulé, relancer le cycle
-      if (distance === 0) {
-        setTimeout(updateCountdown, 1000); // relance immédiate
+      let timeLeft = targetDate.getTime() - now.getTime();
+      
+      // Si le temps est écoulé, redémarrer un nouveau cycle de 15 jours
+      if (timeLeft <= 0) {
+        targetDate = new Date();
+        targetDate.setDate(targetDate.getDate() + 15);
+        timeLeft = targetDate.getTime() - now.getTime();
       }
+      
+      // Calculer les jours, heures, minutes et secondes
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      
+      // Mettre à jour l'affichage avec des zéros en tête si nécessaire
+      daysEl.textContent = days.toString().padStart(2, '0');
+      hoursEl.textContent = hours.toString().padStart(2, '0');
+      minutesEl.textContent = minutes.toString().padStart(2, '0');
+      secondsEl.textContent = seconds.toString().padStart(2, '0');
     }
+    
+    // Mettre à jour toutes les secondes
     setInterval(updateCountdown, 1000);
+    
+    // Première mise à jour immédiate
     updateCountdown();
   }
 });
