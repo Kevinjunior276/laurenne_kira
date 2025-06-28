@@ -248,26 +248,28 @@ document.addEventListener('DOMContentLoaded', () => {
       setInterval(rotateWords, 2000);
   }
 
-  // Compte à rebours cyclique de 15 jours
+  // Compte à rebours fixe pour promotion - Date universelle synchronisée
   const daysEl = document.getElementById("days");
   const hoursEl = document.getElementById("hours");
   const minutesEl = document.getElementById("minutes");
   const secondsEl = document.getElementById("seconds");
   
   if (daysEl && hoursEl && minutesEl && secondsEl) {
-    // Date de fin du cycle actuel (15 jours à partir de maintenant)
-    let targetDate = new Date();
-    targetDate.setDate(targetDate.getDate() + 15);
+    // DATE DE FIN FIXE DE LA PROMOTION - 13 juillet 2025 à 23:59:59
+    // Format: 'YYYY-MM-DDTHH:MM:SS' (année-mois-jour-heure:minute:seconde)
+    const PROMOTION_END_DATE = new Date('2025-07-13T23:59:59');
     
     function updateCountdown() {
       const now = new Date();
-      let timeLeft = targetDate.getTime() - now.getTime();
+      let timeLeft = PROMOTION_END_DATE.getTime() - now.getTime();
       
       // Si le temps est écoulé, redémarrer un nouveau cycle de 15 jours
       if (timeLeft <= 0) {
-        targetDate = new Date();
-        targetDate.setDate(targetDate.getDate() + 15);
-        timeLeft = targetDate.getTime() - now.getTime();
+        // Calculer la prochaine date de fin (15 jours à partir de maintenant)
+        const nextEndDate = new Date(now.getTime() + (15 * 24 * 60 * 60 * 1000));
+        // Mettre à jour la date de promotion
+        PROMOTION_END_DATE.setTime(nextEndDate.getTime());
+        timeLeft = PROMOTION_END_DATE.getTime() - now.getTime();
       }
       
       // Calculer les jours, heures, minutes et secondes
