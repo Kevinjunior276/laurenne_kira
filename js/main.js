@@ -248,49 +248,48 @@ document.addEventListener('DOMContentLoaded', () => {
       setInterval(rotateWords, 2000);
   }
 
-  // Compte à rebours fixe pour promotion - Date universelle synchronisée
-  const daysEl = document.getElementById("days");
-  const hoursEl = document.getElementById("hours");
-  const minutesEl = document.getElementById("minutes");
-  const secondsEl = document.getElementById("seconds");
-  
-  if (daysEl && hoursEl && minutesEl && secondsEl) {
-    // DATE DE FIN FIXE DE LA PROMOTION - 13 juillet 2025 à 23:59:59
-    // Format: 'YYYY-MM-DDTHH:MM:SS' (année-mois-jour-heure:minute:seconde)
-    const PROMOTION_END_DATE = new Date('2025-07-13T23:59:59');
-    
-    function updateCountdown() {
-      const now = new Date();
-      let timeLeft = PROMOTION_END_DATE.getTime() - now.getTime();
-      
-      // Si le temps est écoulé, redémarrer un nouveau cycle de 15 jours
-      if (timeLeft <= 0) {
-        // Calculer la prochaine date de fin (15 jours à partir de maintenant)
-        const nextEndDate = new Date(now.getTime() + (15 * 24 * 60 * 60 * 1000));
-        // Mettre à jour la date de promotion
-        PROMOTION_END_DATE.setTime(nextEndDate.getTime());
-        timeLeft = PROMOTION_END_DATE.getTime() - now.getTime();
-      }
-      
-      // Calculer les jours, heures, minutes et secondes
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-      
-      // Mettre à jour l'affichage avec des zéros en tête si nécessaire
-      daysEl.textContent = days.toString().padStart(2, '0');
-      hoursEl.textContent = hours.toString().padStart(2, '0');
-      minutesEl.textContent = minutes.toString().padStart(2, '0');
-      secondsEl.textContent = seconds.toString().padStart(2, '0');
-    }
-    
-    // Mettre à jour toutes les secondes
-    setInterval(updateCountdown, 1000);
-    
-    // Première mise à jour immédiate
-    updateCountdown();
+ // Compte à rebours cyclique (tous les 15 jours à partir d'une date de départ)
+const daysEl = document.getElementById("days");
+const hoursEl = document.getElementById("hours");
+const minutesEl = document.getElementById("minutes");
+const secondsEl = document.getElementById("seconds");
+
+if (daysEl && hoursEl && minutesEl && secondsEl) {
+  // Date de départ fixe (commune pour tous les visiteurs)
+  const PROMO_START = new Date('2025-06-28T00:00:00'); // change selon ta campagne
+  const CYCLE_DURATION_MS = 15 * 24 * 60 * 60 * 1000; // 15 jours
+
+  function getCurrentCycleEndDate() {
+    const now = new Date();
+    const timeSinceStart = now.getTime() - PROMO_START.getTime();
+
+    // Combien de cycles de 15 jours se sont écoulés ?
+    const cyclesElapsed = Math.floor(timeSinceStart / CYCLE_DURATION_MS);
+
+    // Début du prochain cycle = date de départ + (cycles écoulés + 1) * 15 jours
+    return new Date(PROMO_START.getTime() + (cyclesElapsed + 1) * CYCLE_DURATION_MS);
   }
+
+  function updateCountdown() {
+    const now = new Date();
+    const end = getCurrentCycleEndDate();
+    const timeLeft = end.getTime() - now.getTime();
+
+    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+    daysEl.textContent = days.toString().padStart(2, '0');
+    hoursEl.textContent = hours.toString().padStart(2, '0');
+    minutesEl.textContent = minutes.toString().padStart(2, '0');
+    secondsEl.textContent = seconds.toString().padStart(2, '0');
+  }
+
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  }       
 
   // Initialisation du simulateur (seulement si les éléments existent)
   if (amountSelect && durationSelect && currencySelect) {
