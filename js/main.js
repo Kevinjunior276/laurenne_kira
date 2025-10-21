@@ -248,32 +248,38 @@ document.addEventListener('DOMContentLoaded', () => {
       setInterval(rotateWords, 2000);
   }
 
- // Compte à rebours cyclique (tous les 15 jours à partir d'une date de départ)
+ // Compte à rebours cyclique (tous les 14 jours à partir d'une date de départ)
+// --- Compte à rebours globalement synchronisé ---
 const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
 
 if (daysEl && hoursEl && minutesEl && secondsEl) {
-  // Date de départ fixe (commune pour tous les visiteurs)
-  const PROMO_START = new Date('2025-10-21T00:00:00'); // change selon ta campagne
+  // Date de départ en UTC (évite tout décalage local)
+  const PROMO_START_UTC = Date.UTC(2025, 9, 21, 0, 0, 0); // 21 octobre 2025 à 00:00 UTC
   const CYCLE_DURATION_MS = 14 * 24 * 60 * 60 * 1000; // 14 jours
 
-  function getCurrentCycleEndDate() {
-    const now = new Date();
-    const timeSinceStart = now.getTime() - PROMO_START.getTime();
+  function getCurrentCycleEndDateUTC() {
+    const nowUTC = Date.now();
+    const timeSinceStart = nowUTC - PROMO_START_UTC;
 
-    // Combien de cycles de 15 jours se sont écoulés ?
     const cyclesElapsed = Math.floor(timeSinceStart / CYCLE_DURATION_MS);
-
-    // Début du prochain cycle = date de départ + (cycles écoulés + 1) * 15 jours
-    return new Date(PROMO_START.getTime() + (cyclesElapsed + 1) * CYCLE_DURATION_MS);
+    return PROMO_START_UTC + (cyclesElapsed + 1) * CYCLE_DURATION_MS;
   }
 
   function updateCountdown() {
-    const now = new Date();
-    const end = getCurrentCycleEndDate();
-    const timeLeft = end.getTime() - now.getTime();
+    const nowUTC = Date.now();
+    const endUTC = getCurrentCycleEndDateUTC();
+    const timeLeft = endUTC - nowUTC;
+
+    if (timeLeft <= 0) {
+      daysEl.textContent = '00';
+      hoursEl.textContent = '00';
+      minutesEl.textContent = '00';
+      secondsEl.textContent = '00';
+      return;
+    }
 
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -286,10 +292,10 @@ if (daysEl && hoursEl && minutesEl && secondsEl) {
     secondsEl.textContent = seconds.toString().padStart(2, '0');
   }
 
-  setInterval(updateCountdown, 1000);
   updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
 
-  }       
 
   // Initialisation du simulateur (seulement si les éléments existent)
   if (amountSelect && durationSelect && currencySelect) {
