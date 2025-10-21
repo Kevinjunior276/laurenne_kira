@@ -256,8 +256,8 @@ const secondsEl = document.getElementById("seconds");
 
 if (daysEl && hoursEl && minutesEl && secondsEl) {
   // Date de départ fixe (commune pour tous les visiteurs)
-  const PROMO_START = new Date('2025-06-28T00:00:00'); // change selon ta campagne
-  const CYCLE_DURATION_MS = 15 * 24 * 60 * 60 * 1000; // 15 jours
+  const PROMO_START = new Date(); // change selon ta campagne
+  const CYCLE_DURATION_MS = 14 * 24 * 60 * 60 * 1000; // 14 jours
 
   function getCurrentCycleEndDate() {
     const now = new Date();
