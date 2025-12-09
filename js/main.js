@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
  // Compte à rebours cyclique (tous les 14 jours à partir d'une date de départ)
-// --- Compte à rebours globalement synchronisé ---
+// --- Compte à rebours globalement synchronisé (UTC) ---
 const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
@@ -257,29 +257,35 @@ const secondsEl = document.getElementById("seconds");
 
 if (daysEl && hoursEl && minutesEl && secondsEl) {
   // Date de départ en UTC (évite tout décalage local)
-  const PROMO_START_UTC = Date.UTC(2025, 10, 9, 0, 0, 0); // 09 Decembre 2025 à 00:00 UTC
+  // IMPORTANT : mois indexé à 0 dans Date.UTC -> décembre = 11
+  // Ici on choisit 09 décembre 2025 à 00:00 UTC comme point de départ synchronisé.
+  const PROMO_START_UTC = Date.UTC(2025, 11, 9, 0, 0, 0); // 09 Décembre 2025 00:00 UTC
   const CYCLE_DURATION_MS = 14 * 24 * 60 * 60 * 1000; // 14 jours
 
+  // Debug : affiche les valeurs pour vérification dans la console
+  console.debug('PROMO_START_UTC (ms):', PROMO_START_UTC, ' => ', new Date(PROMO_START_UTC).toUTCString());
+  console.debug('CYCLE_DURATION_MS (days):', CYCLE_DURATION_MS / (24*60*60*1000));
+
+  // Retourne la date de fin du cycle courant (la prochaine date d'expiration > maintenant)
   function getCurrentCycleEndDateUTC() {
     const nowUTC = Date.now();
     const timeSinceStart = nowUTC - PROMO_START_UTC;
 
+    // cyclesElapsed = nombre entier de cycles complets déjà passés
+    // on ajoute +1 pour obtenir la fin du cycle courant (la prochaine expiration)
     const cyclesElapsed = Math.floor(timeSinceStart / CYCLE_DURATION_MS);
-    return PROMO_START_UTC + (cyclesElapsed + 1) * CYCLE_DURATION_MS;
+    const nextCycleIndex = Math.max(cyclesElapsed + 1, 0);
+    return PROMO_START_UTC + nextCycleIndex * CYCLE_DURATION_MS;
   }
 
   function updateCountdown() {
     const nowUTC = Date.now();
     const endUTC = getCurrentCycleEndDateUTC();
-    const timeLeft = endUTC - nowUTC;
+    let timeLeft = endUTC - nowUTC;
 
-    if (timeLeft <= 0) {
-      daysEl.textContent = '00';
-      hoursEl.textContent = '00';
-      minutesEl.textContent = '00';
-      secondsEl.textContent = '00';
-      return;
-    }
+    // Sécurité : si pour une raison quelconque timeLeft est négatif on remet à 0,
+    // mais normalement endUTC est toujours > nowUTC grâce à la formule ci-dessus.
+    if (timeLeft <= 0) timeLeft = 0;
 
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
