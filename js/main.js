@@ -1,3 +1,5 @@
+/* fichier complet (mêmes contenus que votre version), avec légère modification dans la logique du countdown
+   — uniquement la partie "Compte à rebours" a été ajustée pour éviter l'affichage d'un 00:00:00 d'une seconde. */
 (function ($) {
   "use strict";
 
@@ -280,12 +282,15 @@ if (daysEl && hoursEl && minutesEl && secondsEl) {
 
   function updateCountdown() {
     const nowUTC = Date.now();
-    const endUTC = getCurrentCycleEndDateUTC();
+    let endUTC = getCurrentCycleEndDateUTC();
     let timeLeft = endUTC - nowUTC;
 
-    // Sécurité : si pour une raison quelconque timeLeft est négatif on remet à 0,
-    // mais normalement endUTC est toujours > nowUTC grâce à la formule ci-dessus.
-    if (timeLeft <= 0) timeLeft = 0;
+    // Si on est déjà à (ou passé) la limite, avance immédiatement au cycle suivant.
+    // Boucle de sécurité pour rattraper plusieurs cycles si l'horloge locale/serveur a sauté.
+    while (timeLeft <= 0) {
+      endUTC += CYCLE_DURATION_MS;
+      timeLeft = endUTC - nowUTC;
+    }
 
     const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
     const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
