@@ -257,7 +257,7 @@ const secondsEl = document.getElementById("seconds");
 
 if (daysEl && hoursEl && minutesEl && secondsEl) {
   // Date de départ en UTC (évite tout décalage local)
-  const PROMO_START_UTC = Date.UTC(2025, 12, 9, 0, 0, 0); // 09 Decembre 2025 à 00:00 UTC
+  const PROMO_START_UTC = Date.UTC(2025, 10, 9, 0, 0, 0); // 09 Decembre 2025 à 00:00 UTC
   const CYCLE_DURATION_MS = 14 * 24 * 60 * 60 * 1000; // 14 jours
 
   function getCurrentCycleEndDateUTC() {
